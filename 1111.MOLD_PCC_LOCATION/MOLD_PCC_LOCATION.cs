@@ -40,9 +40,8 @@ namespace FORM
             ForeColor,
         }
 
-        private readonly Size _SizeCellHeader = new Size(80, 30);
-        private readonly Size _SizeCellBody = new Size(80, 30);
-        private readonly Size _SizeGrp = new Size(10,10);
+        private readonly Size _SizeCellHeader = new Size(80, 25);
+        private readonly Size _SizeCellBody = new Size(80, 22);
 
         private void SMT_QUALITY_COCKPIT_MAIN_Load(object sender, EventArgs e)
         {
@@ -84,18 +83,26 @@ namespace FORM
             string[] loctionGrp = { "H", "I", "J", "K", "G", "F", "E", "D", "C", "B", "A" };
             int[] loctionCell = { 8, 8, 8, 8, 24, 32, 32, 30, 24, 24, 18 };
 
-            int locXStart = 10, locYStart = 10;
+            int locXStart = 50, locYStart = 10;
             int locX = locXStart, locY = locYStart;
-            for (int iGrp = 0; iGrp < 4; iGrp ++)
+            int distanceGrpHorizontal = 100;
+            int distanceGrpVertical = 110;
+            for (int iGrp = 0; iGrp < 4; iGrp++)
             {
                 CreateGrpHorizontal(ref locX, ref locY, loctionGrp[iGrp], loctionCell[iGrp]);
-                locX += _SizeCellHeader.Width + 20;
-                locY = locYStart;
+                locX +=  distanceGrpHorizontal;
+                if (iGrp + 1 < 4) locY = locYStart;
             }
 
             locX = locXStart;
+            locYStart = locY + _SizeCellHeader.Height + _SizeCellBody.Height + 20;
 
-            CreateGrpHorizontal(ref locX, ref locY, "G", 24);
+            for (int iGrp = 4; iGrp < loctionGrp.Length; iGrp++)
+            {
+                locY = locYStart;
+                CreateGrpVertical(ref locX, ref locY, loctionGrp[iGrp], loctionCell[iGrp]);
+                locX += _SizeCellHeader.Width + distanceGrpVertical;
+            }
 
         }
 
@@ -104,22 +111,30 @@ namespace FORM
         {
             int locX = argLocX, locY = argLocY;
             int splitGrp = argQtyCell / 2;
+            int distance2ColumnGrp = 1;
+            int distance2RowGrp = 5;
+
+            int heightGrpHeder = ((_SizeCellHeader.Height + _SizeCellBody.Height) * 2) + distance2RowGrp;
+            int widthGrpHeder = 50;
+            CreateGrpHeader(new Point(locX, locY), new Size(widthGrpHeder, heightGrpHeder), "cmd_Grp_" + argGrpName, argGrpName);           
+            locX += widthGrpHeder;
+
             for (int i=1; i<= argQtyCell; i++)
             {               
                 CreateCell(locX, locY, argGrpName + i.ToString("00"));
                 //divice group 
                 if (i == splitGrp)
                 {
-                    locX = argLocX;
-                    locY += _SizeCellHeader.Height + _SizeCellBody.Height + 2;
+                    locX = argLocX + widthGrpHeder;
+                    locY += _SizeCellHeader.Height + _SizeCellBody.Height + distance2RowGrp;
                 }
                 else
                 {
                     //Set location X next cell
-                    locX += _SizeCellHeader.Width + 5;
+                    locX += _SizeCellHeader.Width + distance2ColumnGrp;
                 }               
             }
-            argLocX = locX - 5;
+            argLocX = locX - distance2ColumnGrp;
             argLocY = locY;
         }
 
@@ -127,23 +142,31 @@ namespace FORM
         {
             int locX = argLocX, locY = argLocY;
             int splitGrp = argQtyCell / 2;
+            int distance2ColumnGrp = 5;
+            int distance2RowGrp = 1;
+
+            int withGrpHeder = (_SizeCellHeader.Width * 2) + distance2ColumnGrp;
+            int heightGrpHeader = 50;
+            CreateGrpHeader(new Point(locX, locY), new Size(withGrpHeder, heightGrpHeader), "cmd_Grp_" + argGrpName, argGrpName);
+            locY += heightGrpHeader;
+
             for (int i = 1; i <= argQtyCell; i++)
             {
                 CreateCell(locX, locY, argGrpName + i.ToString("00"));
                 //divice group 
                 if (i == splitGrp)
                 {
-                    locX = argLocX;
-                    locY += _SizeCellHeader.Width + _SizeCellBody.Width + 5;
+                    locY = argLocY + heightGrpHeader;
+                    locX += _SizeCellHeader.Width + distance2ColumnGrp;
                 }
                 else
                 {
                     //Set location X next cell
-                    locX += _SizeCellHeader.Height + 2;
+                    locY += _SizeCellHeader.Height + _SizeCellBody.Height + distance2RowGrp;
                 }
             }
-            argLocX = locX - 2;
-            argLocY = locY;
+            argLocY = locY - distance2RowGrp;
+            argLocX = locX;
         }
 
         private void CreateCell(int argLocX, int argLocY, string argLocName)
@@ -151,12 +174,12 @@ namespace FORM
             Point LocCell = new Point(argLocX, argLocY);
             Point LocQty = new Point(LocCell.X, LocCell.Y + _SizeCellHeader.Height);
 
-            CreateCellHeader(LocCell, _SizeCellHeader, "cmd_Cel_" + argLocName, argLocName);
-            CreateCellBody(LocQty, _SizeCellBody, "cmd_Qty_" + argLocName, "0/20");
+            CreateCellHeader(LocCell, "cmd_Che_" + argLocName, argLocName);
+            CreateCellBody(LocQty, "cmd_Cbd_" + argLocName, "0/20");
 
         }
 
-        private void CreateCellHeader(Point argLocation, Size argSize, string argName, string argText)
+        private void CreateCellHeader(Point argLocation, string argName, string argText)
         {
             Button cmd = new Button();
             try
@@ -168,7 +191,7 @@ namespace FORM
                 cmd.BackColor = Color.Black;
                 cmd.ForeColor = Color.White;
                 cmd.Name = argName;
-                cmd.Size = new Size(80, 30);
+                cmd.Size = _SizeCellHeader;
                 cmd.Text = argText;
                 cmd.UseVisualStyleBackColor = true;
                 cmd.Click += new EventHandler(Button_Create_Click);
@@ -180,16 +203,41 @@ namespace FORM
             }
         }
 
-        private void CreateCellBody(Point argLocation, Size argSize, string argName, string argText)
+        private void CreateCellBody(Point argLocation, string argName, string argText)
         {
             Button cmd = new Button();
             try
             {
                 cmd.FlatAppearance.BorderSize = 0;
                 cmd.FlatStyle = FlatStyle.Flat;
-                cmd.Font = new Font("Calibri", 10F, FontStyle.Bold);
+                cmd.Font = new Font("Calibri", 10F);
                 cmd.Location = argLocation;
                 cmd.BackColor = Color.SkyBlue;
+                cmd.ForeColor = Color.Black;
+                cmd.Name = argName;
+                cmd.Size = _SizeCellBody;
+                cmd.Text = argText;
+                cmd.TextAlign = ContentAlignment.TopCenter;
+                cmd.UseVisualStyleBackColor = true;
+                cmd.Click += new EventHandler(Button_Create_Click);
+                pnLocation.Controls.Add(cmd);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        private void CreateGrpHeader(Point argLocation, Size argSize, string argName, string argText)
+        {
+            Button cmd = new Button();
+            try
+            {
+                cmd.FlatAppearance.BorderSize = 0;
+                cmd.FlatStyle = FlatStyle.Flat;
+                cmd.Font = new Font("Calibri", 25F, FontStyle.Bold);
+                cmd.Location = argLocation;
+                cmd.BackColor = Color.Yellow;
                 cmd.ForeColor = Color.Black;
                 cmd.Name = argName;
                 cmd.Size = argSize;
@@ -204,35 +252,10 @@ namespace FORM
             }
         }
 
-       
-
-        private void CreateGrpHeader(Point argLocation, string argName, string argText)
-        {
-            Button cmd = new Button();
-            try
-            {
-                cmd.FlatAppearance.BorderSize = 0;
-                cmd.FlatStyle = FlatStyle.Flat;
-                cmd.Font = new Font("Calibri", 10F, FontStyle.Bold);
-                cmd.Location = argLocation;
-                cmd.BackColor = Color.Yellow;
-                cmd.ForeColor = Color.Black;
-                cmd.Name = argName;
-                cmd.Size = new Size(10, 10);
-                cmd.Text = argText;
-                cmd.UseVisualStyleBackColor = true;
-                cmd.Click += new EventHandler(Button_Create_Click);
-                pnLocation.Controls.Add(cmd);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-        }
-
         private void Button_Create_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Control ctr = (Control)sender;
+            MessageBox.Show(ctr.Name);
         }
 
 

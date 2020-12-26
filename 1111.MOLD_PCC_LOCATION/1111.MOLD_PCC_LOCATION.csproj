@@ -131,12 +131,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UC\UC_Chart_Bar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\UC_Chart_Bar.designer.cs">
-      <DependentUpon>UC_Chart_Bar.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC\UC_Factory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,9 +171,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\UC_Chart_Bar.resx">
-      <DependentUpon>UC_Chart_Bar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_Chart_Pie.resx">
       <DependentUpon>UC_Factory.cs</DependentUpon>
