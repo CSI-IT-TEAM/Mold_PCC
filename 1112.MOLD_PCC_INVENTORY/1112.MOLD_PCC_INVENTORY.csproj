@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D57E420E-FAF5-4778-9F6B-F5B9E0868A3D}</ProjectGuid>
+    <ProjectGuid>{B1871BA5-DEB8-4187-8E45-1B2C63DCD321}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FORM</RootNamespace>
-    <AssemblyName>MOLD_PCC_LOCATION</AssemblyName>
+    <AssemblyName>MOLD_PCC_INVENTORY</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -47,63 +47,57 @@
     </Reference>
     <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.Charts.v17.1.Core.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.Charts.v17.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.Data.v17.1.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.Data.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.Printing.v17.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.Utils.v17.1.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.Utils.v17.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraCharts.v17.1.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.XtraCharts.v17.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraCharts.v17.1.UI.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.XtraCharts.v17.1.UI.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraEditors.v17.1.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.XtraEditors.v17.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraGauges.v17.1.Core.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.XtraGauges.v17.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraGauges.v17.1.Win.dll</HintPath>
-    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraGrid.v17.1.dll</HintPath>
-    </Reference>
-    <Reference Include="LocationBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MAIN\bin\debug\LocationBox.dll</HintPath>
+      <HintPath>..\MAIN\bin\Debug\DevExpress.XtraGrid.v17.1.dll</HintPath>
     </Reference>
     <Reference Include="msdatasrc, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>C:\Windows\assembly\GAC\MSDATASRC\7.0.3300.0__b03f5f7f11d50a3a\msdatasrc.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassLib\A1Panel.cs">
@@ -117,6 +111,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ClassLib\RoundedRectangle.cs" />
+    <Compile Include="ClassLib\Var.cs" />
     <Compile Include="ClassLib\Globals.cs" />
     <Compile Include="ClassLib\GroupboxEx.cs">
       <SubType>Component</SubType>
@@ -127,73 +122,27 @@
     <Compile Include="ClassLib\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MOLD_PCC_LOCATION.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MOLD_PCC_LOCATION.designer.cs">
-      <DependentUpon>MOLD_PCC_LOCATION.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UC\UC_Factory.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="MOLD_PCC_INVENTORY.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UC\UC_Chart_Pie.designer.cs">
-      <DependentUpon>UC_Factory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC\UC_DWMY.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\UC_DWMY.designer.cs">
-      <DependentUpon>UC_DWMY.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC\UC_Chart_Donut.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\UC_Chart_Donut.designer.cs">
-      <DependentUpon>UC_Chart_Donut.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC\UC_MONTH_SELECTION.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\UC_MONTH_SELECTION.designer.cs">
-      <DependentUpon>UC_MONTH_SELECTION.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC\UC_YEAR_SELECTION.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\UC_YEAR_SELECTION.Designer.cs">
-      <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
+    <Compile Include="MOLD_PCC_INVENTORY.Designer.cs">
+      <DependentUpon>MOLD_PCC_INVENTORY.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MOLD_PCC_LOCATION.resx">
-      <DependentUpon>MOLD_PCC_LOCATION.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC\UC_Chart_Pie.resx">
-      <DependentUpon>UC_Factory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\UC_DWMY.resx">
-      <DependentUpon>UC_DWMY.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\UC_Chart_Donut.resx">
-      <DependentUpon>UC_Chart_Donut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\UC_MONTH_SELECTION.resx">
-      <DependentUpon>UC_MONTH_SELECTION.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC\UC_YEAR_SELECTION.resx">
-      <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
+    <EmbeddedResource Include="MOLD_PCC_INVENTORY.resx">
+      <DependentUpon>MOLD_PCC_INVENTORY.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -211,7 +160,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <None Include="Resources\btnSearch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
