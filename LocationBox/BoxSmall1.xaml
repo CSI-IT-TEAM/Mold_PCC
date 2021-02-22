@@ -51,6 +51,6 @@
         </Rectangle>
         <Label Margin="-1,31,0,2" Name="label1" FontStyle="Normal" FontWeight="Bold" Foreground="Black" FontFamily="Verdana" FontStretch="Normal" Grid.ColumnSpan="8" HorizontalAlignment="Left" Width="111" Grid.RowSpan="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="01" AllowDrop="False" ClipToBounds="True" />
         <Label Content="01" FontFamily="Verdana" FontSize="16" FontStretch="Normal" FontStyle="Normal" FontWeight="Bold" Foreground="Black" Margin="-26,0,1,8" Name="label2" Grid.ColumnSpan="11" FlowDirection="LeftToRight" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
-        <Polygon Name="Polygon1" Points="0,1 15,1 ,0,34" Fill="Salmon" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,0,8" StrokeThickness="0" />
+        <Polygon Name="Polygon1" Points="0,1 15,1 ,0,33" Fill="Salmon" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,0,8" StrokeThickness="0" />
     </Grid>
 </UserControl>

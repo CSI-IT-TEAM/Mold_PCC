@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D57E420E-FAF5-4778-9F6B-F5B9E0868A3D}</ProjectGuid>
+    <ProjectGuid>{3EC77409-2B25-40AD-8F4B-5FB7D3F8C967}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FORM</RootNamespace>
-    <AssemblyName>MOLD_PCC_LOCATION</AssemblyName>
+    <AssemblyName>MOLD_PCC_POP_DETAIL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -81,8 +81,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MAIN\bin\Debug\References\DevExpress.XtraGrid.v17.1.dll</HintPath>
     </Reference>
-    <Reference Include="LocationBoxPCC">
-      <HintPath>..\MAIN\bin\debug\LocationBoxPCC.dll</HintPath>
+    <Reference Include="LocationBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MAIN\bin\debug\LocationBox.dll</HintPath>
     </Reference>
     <Reference Include="msdatasrc, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <SpecificVersion>False</SpecificVersion>
@@ -126,29 +127,17 @@
     <Compile Include="ClassLib\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MOLD_PCC_LOCATION.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MOLD_PCC_LOCATION.designer.cs">
-      <DependentUpon>MOLD_PCC_LOCATION.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MOLD_PCC_POP_DETAIL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MOLD_PCC_POP_DETAIL.Designer.cs">
-      <DependentUpon>MOLD_PCC_POP_DETAIL.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="MOLD_PCC_LOCATION_POPUP.cs">
+    <Compile Include="MOLD_PCC_POP_DETAIL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MOLD_PCC_LOCATION_POPUP.Designer.cs">
-      <DependentUpon>MOLD_PCC_LOCATION_POPUP.cs</DependentUpon>
+    <Compile Include="MOLD_PCC_POP_DETAIL.Designer.cs">
+      <DependentUpon>MOLD_PCC_POP_DETAIL.cs</DependentUpon>
     </Compile>
     <Compile Include="UC\UC_Factory.cs">
       <SubType>UserControl</SubType>
@@ -182,20 +171,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MOLD_PCC_LOCATION.resx">
-      <DependentUpon>MOLD_PCC_LOCATION.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MOLD_PCC_POP_DETAIL.resx">
-      <DependentUpon>MOLD_PCC_POP_DETAIL.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MOLD_PCC_LOCATION_POPUP.resx">
-      <DependentUpon>MOLD_PCC_LOCATION_POPUP.cs</DependentUpon>
+    <EmbeddedResource Include="MOLD_PCC_POP_DETAIL.resx">
+      <DependentUpon>MOLD_PCC_POP_DETAIL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_Chart_Pie.resx">
       <DependentUpon>UC_Factory.cs</DependentUpon>

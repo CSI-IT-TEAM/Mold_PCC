@@ -82,42 +82,46 @@ namespace LocationBox
             if (arg_status)
             {
                 _tmr_blink.Tick += new EventHandler(_tmr_blink_Tick);
-                _tmr_blink.Interval = new TimeSpan(0, 0, 1);
+                _tmr_blink.Interval = new TimeSpan(0, 0, 0,0,250);
                 _tmr_blink.Start();
 
             }
             else
+            {
                 _tmr_blink.Stop();
+                BoxColorDefault();
+            }
+                
         }
         public void _tmr_blink_Tick(object sender, EventArgs e)
         {
             if (_b_Blink)
             {
                 BoxColorDefault();
-                BoxPolygonColor("default");
+               // BoxPolygonColor("default");
             }
             else
             {
                 BoxColorSearch();
-                BoxPolygonColor("search");
+               // BoxPolygonColor("search");
             }
             _b_Blink = !_b_Blink;
         }
 
         #endregion Timer
 
-        public void BoxColorChange()
+        public void BoxColorEmpty()
         {
-            RectFront.Fill = new SolidColorBrush(System.Windows.Media.Colors.Yellow);
-            RectTop.Fill = new SolidColorBrush(System.Windows.Media.Colors.Yellow);
-            RectRight.Fill = new SolidColorBrush(System.Windows.Media.Colors.Yellow);
+            RectFront.Fill = new SolidColorBrush(System.Windows.Media.Colors.LightGreen);
+            RectTop.Fill = new SolidColorBrush(System.Windows.Media.Colors.Salmon);
+            RectRight.Fill = new SolidColorBrush(System.Windows.Media.Colors.Salmon);
         }
 
         public void BoxColorSearch()
         {
-            RectFront.Fill = new SolidColorBrush(System.Windows.Media.Colors.Green);
-            RectTop.Fill = new SolidColorBrush(System.Windows.Media.Colors.Green);
-            RectRight.Fill = new SolidColorBrush(System.Windows.Media.Colors.Green);
+            RectFront.Fill = new SolidColorBrush(System.Windows.Media.Colors.Yellow);
+            RectTop.Fill = new SolidColorBrush(System.Windows.Media.Colors.Salmon);
+            RectRight.Fill = new SolidColorBrush(System.Windows.Media.Colors.Salmon);
         }
 
         public void BoxColorDefault()
