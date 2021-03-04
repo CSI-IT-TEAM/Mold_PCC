@@ -122,6 +122,12 @@
     <Compile Include="ClassLib\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MOLD_PCC_INVENTORY_DETAIL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOLD_PCC_INVENTORY_DETAIL.Designer.cs">
+      <DependentUpon>MOLD_PCC_INVENTORY_DETAIL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +142,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MOLD_PCC_INVENTORY_DETAIL.resx">
+      <DependentUpon>MOLD_PCC_INVENTORY_DETAIL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

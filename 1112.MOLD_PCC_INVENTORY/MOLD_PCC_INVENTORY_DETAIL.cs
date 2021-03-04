@@ -7,21 +7,21 @@ using System.Data.OracleClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Navigation;
 
 namespace FORM
 {
-    public partial class MOLD_PCC_POP_DETAIL : Form
+    public partial class MOLD_PCC_INVENTORY_DETAIL : Form
     {
-        public MOLD_PCC_POP_DETAIL()
+        public MOLD_PCC_INVENTORY_DETAIL()
         {
             InitializeComponent();
         }
-        public string _location="";
+        public string _model="", _mold_cd= "", _type = "", _month = "";
 
-        string _strHeader = "Shelf ";
+        string _strHeader = "Inventory Detail ";
 
         public Hashtable _htInfor = null;
         DataTable _dtData = null;
@@ -36,7 +36,7 @@ namespace FORM
             if (Visible)
             {
                 _isLoad = true;
-                lblHeader.Text = _strHeader + _location;
+                lblHeader.Text = _strHeader ;
                 SetData();
                 tmr_Reload.Start();
                 _isLoad = false;
@@ -57,7 +57,7 @@ namespace FORM
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                DataSet dsData = await SEL_MOLD_LOCTED_POP_DETAIL("", "", "");
+                DataSet dsData = await SEL_MOLD_LOCTED_POP_DETAIL();
                 DataTable dtData = dsData.Tables[0];
                 DataTable dtColumn = dsData.Tables[1];
                 _dtData = dtData;
@@ -240,21 +240,11 @@ namespace FORM
             {
                 SaveDlg.RestoreDirectory = true;
                 SaveDlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
-
-                XlsxExportOptions xlsxOptions = new XlsxExportOptions();
-
-                // Set XLSX-specific export options.
-                xlsxOptions.ShowGridLines = false;
-                xlsxOptions.TextExportMode = TextExportMode.Value;
-                xlsxOptions.ExportHyperlinks = false;
-                xlsxOptions.SheetName = "My Sheet222";
-                xlsxOptions.ExportMode = XlsxExportMode.DifferentFiles;
-                xlsxOptions.RawDataMode = false;
-
+                XlsxExportOptions xlsxExportOptions = new XlsxExportOptions();
+                
                 if (SaveDlg.ShowDialog() == DialogResult.OK)
                 {
-                   gvwMain.ExportToXlsx(SaveDlg.FileName, xlsxOptions);
-                    
+                    gvwMain.ExportToXlsx(SaveDlg.FileName);
                 }
 
 
@@ -263,7 +253,7 @@ namespace FORM
         #endregion
 
         #region DB
-        private async Task<DataSet> SEL_MOLD_LOCTED_POP_DETAIL(string arg_Type,string arg_MoldCd,string arg_Located)
+        private async Task<DataSet> SEL_MOLD_LOCTED_POP_DETAIL()
         {
             return await Task.Run(() => {
                 try
@@ -271,18 +261,19 @@ namespace FORM
                     COM.OraDB MyOraDB = new COM.OraDB();
                     DataSet ds_ret;
                     MyOraDB.ConnectName = COM.OraDB.ConnectDB.LMES;
-                    MyOraDB.ShowErr = true;
-                    string process_name = "PKG_MSPD_MOLD_PCC_WMS.SEL_MOLD_POP_DETAIL";
+                  //  MyOraDB.ShowErr = true;
+                    string process_name = "PKG_MSPD_MOLD_PCC_WMS.SEL_MOLD_INVENTORY_DETAIL";
 
-                    MyOraDB.ReDim_Parameter(6);
+                    MyOraDB.ReDim_Parameter(7);
                     MyOraDB.Process_Name = process_name;
 
                     MyOraDB.Parameter_Name[0] = "OUT_CURSOR";
                     MyOraDB.Parameter_Name[1] = "ARG_WH_CD";
-                    MyOraDB.Parameter_Name[2] = "ARG_LOCATED";
+                    MyOraDB.Parameter_Name[2] = "ARG_MODEL";
                     MyOraDB.Parameter_Name[3] = "ARG_TYPE";
                     MyOraDB.Parameter_Name[4] = "ARG_MOLD_CD";
                     MyOraDB.Parameter_Name[5] = "OUT_CURSOR2";
+                    MyOraDB.Parameter_Name[6] = "ARG_MONTH";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
@@ -290,14 +281,15 @@ namespace FORM
                     MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
-
+                    MyOraDB.Parameter_Type[6] = (int)OracleType.VarChar;
 
                     MyOraDB.Parameter_Values[0] = "";
                     MyOraDB.Parameter_Values[1] = "10";
-                    MyOraDB.Parameter_Values[2] = _location;
-                    MyOraDB.Parameter_Values[3] = arg_Type;
-                    MyOraDB.Parameter_Values[4] = arg_MoldCd;
+                    MyOraDB.Parameter_Values[2] = _model;
+                    MyOraDB.Parameter_Values[3] = _type;
+                    MyOraDB.Parameter_Values[4] = _mold_cd;
                     MyOraDB.Parameter_Values[5] = "";
+                    MyOraDB.Parameter_Values[6] = _month;
 
                     MyOraDB.Add_Select_Parameter(true);
                     ds_ret = MyOraDB.Exe_Select_Procedure();
