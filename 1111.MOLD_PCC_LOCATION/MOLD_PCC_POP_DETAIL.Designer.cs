@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmnuExcel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.downloadToExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmr_Reload = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.pnTop.SuspendLayout();
@@ -178,16 +179,25 @@
             // cmnuExcel
             // 
             this.cmnuExcel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.downloadToExcelToolStripMenuItem});
+            this.downloadToExcelToolStripMenuItem,
+            this.exportExcelToolStripMenuItem});
             this.cmnuExcel.Name = "cmnuExcel";
-            this.cmnuExcel.Size = new System.Drawing.Size(172, 26);
+            this.cmnuExcel.Size = new System.Drawing.Size(181, 70);
             this.cmnuExcel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmnuExcel_MouseClick);
             // 
             // downloadToExcelToolStripMenuItem
             // 
             this.downloadToExcelToolStripMenuItem.Name = "downloadToExcelToolStripMenuItem";
-            this.downloadToExcelToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.downloadToExcelToolStripMenuItem.Text = "Download to Excel";
+            this.downloadToExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.downloadToExcelToolStripMenuItem.Text = "To Excel v2";
+            this.downloadToExcelToolStripMenuItem.Click += new System.EventHandler(this.downloadToExcelToolStripMenuItem_Click);
+            // 
+            // exportExcelToolStripMenuItem
+            // 
+            this.exportExcelToolStripMenuItem.Name = "exportExcelToolStripMenuItem";
+            this.exportExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportExcelToolStripMenuItem.Text = "To Excel v1";
+            this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
             // 
             // tmr_Reload
             // 
@@ -229,5 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem downloadToExcelToolStripMenuItem;
         private System.Windows.Forms.Timer tmr_Reload;
         private DevExpress.XtraEditors.LookUpEdit cbo_Model;
+        private System.Windows.Forms.ToolStripMenuItem exportExcelToolStripMenuItem;
     }
 }

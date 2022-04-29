@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FORM
 {
     public partial class MOLD_PCC_INVENTORY_DETAIL : Form

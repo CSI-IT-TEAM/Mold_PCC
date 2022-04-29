@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Navigation;
+using ClosedXML.Excel;
 
 namespace FORM
 {
@@ -231,34 +232,88 @@ namespace FORM
 
         private void cmnuExcel_MouseClick(object sender, MouseEventArgs e)
         {
-            ExportExcel();
+            
         }
 
         private void ExportExcel()
         {
-            using (SaveFileDialog SaveDlg = new SaveFileDialog())
+            try
             {
-                SaveDlg.RestoreDirectory = true;
-                SaveDlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
-
-                XlsxExportOptions xlsxOptions = new XlsxExportOptions();
-
-                // Set XLSX-specific export options.
-                xlsxOptions.ShowGridLines = false;
-                xlsxOptions.TextExportMode = TextExportMode.Value;
-                xlsxOptions.ExportHyperlinks = false;
-                xlsxOptions.SheetName = "My Sheet222";
-                xlsxOptions.ExportMode = XlsxExportMode.DifferentFiles;
-                xlsxOptions.RawDataMode = false;
-
-                if (SaveDlg.ShowDialog() == DialogResult.OK)
+                using (SaveFileDialog SaveDlg = new SaveFileDialog())
                 {
-                   gvwMain.ExportToXlsx(SaveDlg.FileName, xlsxOptions);
-                    
+
+
+                    SaveDlg.RestoreDirectory = true;
+                    SaveDlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                    XlsxExportOptions xlsxOptions = new XlsxExportOptions();
+
+                    // Set XLSX-specific export options.
+                    xlsxOptions.ShowGridLines = false;
+                    xlsxOptions.TextExportMode = TextExportMode.Value;
+                    xlsxOptions.ExportHyperlinks = false;
+                    xlsxOptions.SheetName = "My Sheet";
+                    xlsxOptions.ExportMode = XlsxExportMode.DifferentFiles;
+                    xlsxOptions.RawDataMode = false;
+
+                    if (SaveDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        gvwMain.ExportToXlsx(SaveDlg.FileName, xlsxOptions);
+
+                    }
+
+
                 }
-
-
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            
+        }
+
+        private void ExportExcel2()
+        {
+            try
+            {
+                using (SaveFileDialog SaveDlg = new SaveFileDialog())
+                {
+                    SaveDlg.RestoreDirectory = true;
+                    SaveDlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
+
+                    if (SaveDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        DataTable dt = (DataTable)grdMain.DataSource;
+                        XLWorkbook wb = new XLWorkbook();
+                        wb.Worksheets.Add(dt, "My Sheet");
+                        wb.SaveAs(SaveDlg.FileName);
+                    }
+
+
+
+                    //XlsxExportOptions xlsxOptions = new XlsxExportOptions();
+
+                    //// Set XLSX-specific export options.
+                    //xlsxOptions.ShowGridLines = false;
+                    //xlsxOptions.TextExportMode = TextExportMode.Value;
+                    //xlsxOptions.ExportHyperlinks = false;
+                    //xlsxOptions.SheetName = "My Sheet222";
+                    //xlsxOptions.ExportMode = XlsxExportMode.DifferentFiles;
+                    //xlsxOptions.RawDataMode = false;
+
+                    //if (SaveDlg.ShowDialog() == DialogResult.OK)
+                    //{
+                    //   gvwMain.ExportToXlsx(SaveDlg.FileName, xlsxOptions);
+
+                    //}
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
         }
         #endregion
 
@@ -319,6 +374,17 @@ namespace FORM
         private void cbo_Model_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             grdMain.DataSource = CboModelValueChange();
+        }
+
+        private void exportExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportExcel();
+        }
+
+        private void downloadToExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportExcel2();
+            
         }
     }
 }
