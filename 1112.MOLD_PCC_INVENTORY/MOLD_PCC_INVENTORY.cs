@@ -332,5 +332,17 @@ namespace FORM
             
             //gvw_Detail.GetRowCellValue(e.RowHandle, e.Column.FieldName);
         }
+
+        private void cmd_NPI_Click(object sender, EventArgs e)
+        {
+            MONTHLY_NPI pop = new MONTHLY_NPI();
+            pop.ShowDialog();
+        }
+
+        private void cmd_MPPA_Click(object sender, EventArgs e)
+        {
+            MPPA pop = new MPPA();
+            pop.ShowDialog();
+        }
     }
 }
