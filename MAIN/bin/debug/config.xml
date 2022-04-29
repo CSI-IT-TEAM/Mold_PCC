@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Base>
+	<MAIN>
+		<grpForm>MOLD_PCC</grpForm>
+		<FlashScreen>true</FlashScreen>
+		<Auto_Download>false</Auto_Download>
+		<AREA>NOS</AREA>
+		<SCREEN>2</SCREEN>
+	</MAIN>
+	<Auto_Download>
+		<grpForm>MOLD_PCC</grpForm>
+	</Auto_Download>
+	
+</Base>
