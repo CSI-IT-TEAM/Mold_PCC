@@ -864,7 +864,7 @@ namespace FORM
                 string[] lines = s.Replace("\n", "").Split('\r');
 
 
-                if (lines.Length - 1 == 1)
+                if (lines.Length - 1 == 1 || lines.Length == 1)
                 {
                     cbo_MoldCd.ClosePopup();
                     cbo_MoldCd.EditValue = lines[0];
