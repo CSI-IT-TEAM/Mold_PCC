@@ -856,6 +856,24 @@ namespace FORM
             ComVar.Var.callForm = "1112";
         }
 
+        private void cbo_MoldCd_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Control | Keys.V))
+            {
+                string s = Clipboard.GetText();
+                string[] lines = s.Replace("\n", "").Split('\r');
+
+
+                if (lines.Length - 1 == 1)
+                {
+                    cbo_MoldCd.ClosePopup();
+                    cbo_MoldCd.EditValue = lines[0];
+                }
+            }
+
+            base.OnKeyDown(e);
+        }
+
         #endregion
 
 
@@ -964,8 +982,7 @@ namespace FORM
         }
 
 
-        #endregion Search Location
 
-        
+        #endregion Search Location
     }
 }

@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MOLD_PCC_LOCATION));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            this.tmrTime = new System.Windows.Forms.Timer(this.components);
+            this.tmrTime = new System.Windows.Forms.Timer();
             this.pnTitle = new System.Windows.Forms.Panel();
+            this.lbl_Total = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.cmd_Inventory = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
@@ -49,9 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnLocation = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbl_Total = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             this.pn_Control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_Size.Properties)).BeginInit();
@@ -81,6 +80,40 @@
             this.pnTitle.Name = "pnTitle";
             this.pnTitle.Size = new System.Drawing.Size(1920, 110);
             this.pnTitle.TabIndex = 21;
+            // 
+            // lbl_Total
+            // 
+            this.lbl_Total.BackColor = System.Drawing.Color.Green;
+            this.lbl_Total.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_Total.ForeColor = System.Drawing.Color.White;
+            this.lbl_Total.Location = new System.Drawing.Point(1203, 12);
+            this.lbl_Total.Name = "lbl_Total";
+            this.lbl_Total.Size = new System.Drawing.Size(130, 72);
+            this.lbl_Total.TabIndex = 692;
+            this.lbl_Total.Text = "Total Mold ";
+            this.lbl_Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.LightGray;
+            this.label5.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(1388, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 35);
+            this.label5.TabIndex = 691;
+            this.label5.Text = "Have Mold";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.LightGreen;
+            this.label4.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(1388, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 35);
+            this.label4.TabIndex = 690;
+            this.label4.Text = "Empty Mold";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmd_Inventory
             // 
@@ -203,6 +236,7 @@
             this.cbo_MoldCd.Size = new System.Drawing.Size(204, 36);
             this.cbo_MoldCd.TabIndex = 16;
             this.cbo_MoldCd.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cbo_MoldCd_Closed);
+            this.cbo_MoldCd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbo_MoldCd_KeyDown);
             // 
             // cbo_Model
             // 
@@ -299,40 +333,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.LightGreen;
-            this.label4.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(1388, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 35);
-            this.label4.TabIndex = 690;
-            this.label4.Text = "Empty Mold";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.LightGray;
-            this.label5.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(1388, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 35);
-            this.label5.TabIndex = 691;
-            this.label5.Text = "Have Mold";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_Total
-            // 
-            this.lbl_Total.BackColor = System.Drawing.Color.Green;
-            this.lbl_Total.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_Total.ForeColor = System.Drawing.Color.White;
-            this.lbl_Total.Location = new System.Drawing.Point(1203, 12);
-            this.lbl_Total.Name = "lbl_Total";
-            this.lbl_Total.Size = new System.Drawing.Size(130, 72);
-            this.lbl_Total.TabIndex = 692;
-            this.lbl_Total.Text = "Total Mold ";
-            this.lbl_Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MOLD_PCC_LOCATION
             // 
